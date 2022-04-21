@@ -11,5 +11,5 @@ function requestLoginCredentials() {
 }
 
 function registerOrLogin(credentials) {
-    window.location.href = `http://157.90.184.232/chat/user.php?action=register_and_login&username=${loginCredentials.username}&password=${loginCredentials.password}`;
+    window.location.href = `http://localhost/chat/user.php?action=register_and_login&username=${loginCredentials.username}&password=${loginCredentials.password}`;
 }
