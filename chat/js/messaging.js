@@ -80,7 +80,7 @@ function loadWholeChatMessages() {
     wholeChat.messages = [];
     wholeChat.messagesLoaded = false;
 
-    $.getJSON(`http://157.90.184.232/chat/messaging.php?action=receive&username=${loginCredentials.username}&password=${loginCredentials.password}&group=${receiver.group}&whole=true`, function(data) {
+    $.getJSON(`http://localhost/chat/messaging.php?action=receive&username=${loginCredentials.username}&password=${loginCredentials.password}&group=${receiver.group}&whole=true`, function(data) {
         for(let a = 0; a < data.length; a++) {
             wholeChat.messages.push(data[a]);
 
@@ -129,7 +129,7 @@ function renderWholeChatMessages() {
 }
 
 function receive() {
-    $.getJSON(`http://157.90.184.232/chat/messaging.php?action=receive&username=${loginCredentials.username}&password=${loginCredentials.password}&group=${receiver.group}`, function(data) {
+    $.getJSON(`http://localhost/chat/messaging.php?action=receive&username=${loginCredentials.username}&password=${loginCredentials.password}&group=${receiver.group}`, function(data) {
         for(let a = 0; a < data.length; a++) {
             if(!messageAlreadyReceived(data[a])) {
                 chat.push(data[a]);
@@ -179,7 +179,7 @@ function receive() {
 function send() {
     console.log(receiver);
     let messageText = $("#message").val();
-    $.getJSON(`http://157.90.184.232/chat/messaging.php?action=send&username=${loginCredentials.username}&password=${loginCredentials.password}&group=${receiver.group}&text=${messageText}`, function(data) {
+    $.getJSON(`http://localhost/chat/messaging.php?action=send&username=${loginCredentials.username}&password=${loginCredentials.password}&group=${receiver.group}&text=${messageText}`, function(data) {
         $("#message").val("");
         console.log(data);
     });        
